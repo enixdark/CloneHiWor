@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  $(document).ready(function($) {
+    $('input[type="file"]').on('change',function(){
+      $('#country_url').val($('input[type="file"]').val());
+    });
+  });
+</script>
+
+
+<form class="new_country" id="new_country" enctype="multipart/form-data" action="/countries" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓">
+<!--<input type="hidden" name="authenticity_token" value="aMPLlYMCSUoR6uBB9dVP07+Pw9ucLIW49/iK+N4rM6R0qdnll0R8O6JMdbHgyNn7BFSLXNqk/vZr8gNW8EdUyg=="> -->
+
+<div class="field">
+  <div class="row">
+    <div class="col-xs-1">
+      <label class="label" for="country_name">Name</label>
+    </div>
+    <br>
+
+    <input class="form-control" type="text" name="country[name]" id="country_name">
+  </div>
+</div>
+<div class="field">
+  <div class="row">
+    <div class="col-xs-1">
+      <label class="label" for="country_flag">Flag</label> 
+    </div>
+    <br>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <span class="btn btn-primary btn-file">
+          Browse<input type="file" name="country[flag]" id="country_flag">
+        </span>
+      </span>
+      <input class="form-control" type="text" name="country[url]" id="country_url">
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <input type="submit" name="commit" value="Save" class="btn btn-primary crud">
+</div>
+</form>

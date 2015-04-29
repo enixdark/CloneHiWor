@@ -1,0 +1,20 @@
+<div class="well clearfix" ng-controller="SchedulerCtrl">
+  <div class="form-group" >
+    <textarea class="form-control" ng-model="message" placeholder="tweet message"></textarea>
+  </div>
+  <p class="input-group">
+    <input style="width:80%" class="form-control" datepicker-popup is-open="opened" min-data="minDate"
+    ng-model="date">
+
+    <span class="input-group-button" style="display: inline">
+
+      <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+    <timepicker ng-model="time"></timepicker>
+
+  </p>
+
+  <button ng-show="isEdit" class="btn btn-default pull-right" type="button" ng-click="delete()">Delete Post</button>
+
+  <button ng-disabled="!date" class="btn btn-default pull-right" type="button" ng-click="save()">Twitter Post</button>
+</div>

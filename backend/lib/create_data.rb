@@ -1,0 +1,13 @@
+class CreateData 
+	def self.execute filepath
+		text = File.open(filepath).read
+		data = eval text
+		data.each do |key,data|
+		    data.each do |db|
+				Menu.create!(parent_id: db[:parent_id], action: db[:action],
+							controllers: db[:controllers],
+							name: db[:name], display_order: db[:display_order])
+			end
+		end
+	end
+end
