@@ -6,7 +6,8 @@
         <%= image_tag 'logo.png' %>
         <div class="full_w">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+        <%= notice %>
+        <%= alert %>
         <div class="field">
           <%= f.label :signin %>
           <%= f.text_field :signin, :autofocus => true, class: 'text' %> 
@@ -22,11 +23,11 @@
 
         <div class="field">
           <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-6">
           <%= f.label :remember_me, style: 'float:left' %>
           <%= f.check_box :remember_me %>
           </div>
-          <div class="col-md-9">
+          <div class="col-md-6">
           <%= render "devise/shared/links" %>
           </div> 
         </div>
@@ -45,8 +46,7 @@
         <!-- <div style="text-align: center;" class="noprint" id="footer">
           FRESH STUDIO &copy;2013
         </div>   -->
-        <%= notice %>
-        <%= alert %>
+        
 
         
 

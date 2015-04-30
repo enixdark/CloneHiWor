@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   # validates :name, presence: true
   validates :username, :uniqueness => { case_sensitive: false}
   
-  # devise_for :users
-
   def self.find_first_by_auth_conditions warden_conditions
   	conditions = warden_conditions.dup
       if signin = conditions.delete(:signin)
@@ -31,7 +29,6 @@ class User < ActiveRecord::Base
 
   def has_role? role
     roles.to_sym == role
-    # false
   end
 
   protected

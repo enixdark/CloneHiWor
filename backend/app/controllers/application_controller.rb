@@ -19,15 +19,18 @@ class ApplicationController < ActionController::Base
         redirect_to :back, :alert => exception.message
       else
         render :file => "#{Rails.root}/public/404.html",
-        :status => 403, :layout => false
+        :status => 404, :layout => false
       end
     end
   end
 
   protected
   	def configure_permitted_parameters
-	  	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
-	  	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:signin, :username, :email, :password, :remember_me) }
-	  	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
+	  	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, 
+                                                :password_confirmation, :remember_me) }
+	  	devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:signin, :username, 
+                                                  :email, :password, :remember_me) }
+	  	devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, 
+                                                      :password_confirmation, :current_password) }
 	  end
 end

@@ -1,16 +1,31 @@
-<h2>Forgot your password?</h2>
+
+<div class="container">
+  <div class="row vertical-align centering">
+    <div class="col-md-6 col-md-offset-3">
+      <div id="main">
+      <h1 class='center_text'>Forgot your password? <%= resource_name.to_s.humanize %></h1>
+      <br/>
+        <div class="full_w">
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true , class: 'text' %>
   </div>
-
+    <div class="row">
+          <div class="col-md-9">
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions" , class:'ok'%>
   </div>
 <% end %>
-
+</div>
+<div class="col-md-3">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
