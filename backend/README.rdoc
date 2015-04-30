@@ -1,28 +1,31 @@
-== README
+#To run app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##require
+- ruby >= 2.2.1
+- rails >= 4.2.0
+- redis >= 3.0.0
+- mysql or postgresql
+- apache2 or nginx ( optional ) 
+- bower ( optional )
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+- please setup ang start mysql and redis before run app
+
+- then, move to backend project and use :
+
+`bundle install `
+- create a database in mysql or postgresql
+- use `rails dbconsole` and `create database web`
+
+`rake db:migrate`
+
+in backend/lib have a file to crawl data from a file html of fresh studio and 1 file menus.json which generate from data.py, you have to use `rails console` 
+
+in console mode
+`require './lib/create_data'
+`CreateData.execute your_path/data.json`
+
+finally , you can set up a apache2 server + passenger or nginx server + unicorn to run app
+or use `rails s`
