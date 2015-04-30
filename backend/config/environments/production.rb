@@ -9,8 +9,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 10.minutes }  # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 10.minutes } 
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -22,7 +21,7 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
+  config.serve_static_assets = true
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
