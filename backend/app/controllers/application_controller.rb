@@ -12,11 +12,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     if current_user.nil?
       session[:next] = request.fullpath
-      if request.path =~ /^\/admins$/
-        redirect_to '/admin/sign_in'
-      else
-        redirect_to login_url, alert: "Please log in to continue."
-      end
+      redirect_to login_url, alert: "Please log in to continue."
     else
       if request.env["HTTP_REFERER"].present?
         redirect_to :back, :alert => exception.message

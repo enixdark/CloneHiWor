@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
+
+
+
   # resources :admins do
-  get 'admins' => 'rails_admin/main#dashboard'
+  #   root to: 'admins#index'
+  # end
+
+  get 'admins' => 'admins#index'
+  # ['user','menu','menuname'].each do |r|
+  #     get 'admins/'+r => 'admins#show'
+  # end
+  get 'admins/:name/' => 'admins#show'
+  # get 'admins/user' => 'admins#gene'
   get '/admin/sign_in' => 'admins#new'
   post '/admin/sign_in' => 'admins#create'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  # end
-  mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
-
-  
 
 
   resources :user
-  resources :posts
+  # resources :posts
   resources :menus
   get 'home/index'
   root to: 'home#index'

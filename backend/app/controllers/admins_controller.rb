@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  layout 'adminpanel'
   authorize_resource :class => User
   skip_authorize_resource :only => [:new,:create]
   # before_filter :authenticate_user!
@@ -8,12 +9,15 @@ class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
   def index
-    @admins = User.all
+    Rails.application.eager_load!
+    @data = ActiveRecord::Base.subclasses.map { |m| m } #ActiveRecord::Base.send(:subclasses).map(&:name) #
+    # byebug
   end
 
   # GET /admins/1
   # GET /admins/1.json
   def show
+
   end
 
   # GET /admins/new
