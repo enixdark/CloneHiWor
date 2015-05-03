@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   end
 
   def has_role? role
+    if roles.nil?
+      return false
+    end
     roles.to_sym == role
   end
 
