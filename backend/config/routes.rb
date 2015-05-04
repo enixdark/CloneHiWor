@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   resources :menus
   get 'home/index'
   root to: 'home#index'
+
   devise_for :users
+  get 'users/profile/' => 'home#showuser'
+  get 'users/profile_password/' => 'home#password'
   # devise_for :admins
   # mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.

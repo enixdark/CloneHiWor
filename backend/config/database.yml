@@ -41,12 +41,13 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8 
-  database: web 
+  database: db1aciouqmg6ai 
   pool: 10
-  username: root 
-  # password:''
-  socket: /opt/lampp/var/mysql/mysql.sock
+  username: csvqnrykfkhhpx 
+  port: 5432
+  password: '983I4Z1dRcAfeA8J0XCkF6MMeI'
+  # socket: /opt/lampp/var/mysql/mysql.sock
   # socket: /var/run/mysqld/mysqld.sock 
   econnect: true

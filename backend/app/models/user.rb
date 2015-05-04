@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
 
   protected
     def default_role
-      self.roles = :user
+      if self.roles.nil?
+        self.roles = :user
+      end
     end
 end

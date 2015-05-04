@@ -30,7 +30,8 @@ class AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
-    @admin = User.find_by(username: admin_params[:signin])
+    @admin = User.where(["lower(username) = :value OR lower(email) = :value", 
+          { value: admin_params[:signin].downcase }]).first
     if @admin && @admin.valid_password?(admin_params[:password]) && @admin.roles == 'admin'
       sign_in @admin
       redirect_to admins_path

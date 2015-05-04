@@ -1,0 +1,19 @@
+<div class="fieldset">
+  <br/>
+  <h2 style="font-size:30px">
+    User info
+  </h2>
+  <br/>
+  <dl>
+    <% @user.each do |name ,data | %>
+    <dt>
+      <span class="<%= name.downcase %>_field label label-info string_type">
+        <%= name.capitalize %>
+      </span>
+    </dt>
+    <dd class="well">
+      <%= data %>
+    </dd>
+    <% end %>
+  </dl>
+</div>
