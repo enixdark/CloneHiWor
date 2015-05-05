@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
         	{ value: signin.downcase }]).first
       else
         where(conditions.to_h).first
-    end
+      end
   end
 
   def has_role? role

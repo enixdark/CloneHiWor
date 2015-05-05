@@ -1,8 +1,8 @@
 class Menu < ActiveRecord::Base
   belongs_to :menuname, foreign_key: :parent_id
-  after_save :clear_cache
+  # after_save :clear_cache
  
-  def clear_cache
-    $redis.del "menus"
-  end
+  # def clear_cache
+  #   $redis.del "menus"
+  # end
 end

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/profile/' => 'home#showuser'
   get 'users/profile_password/' => 'home#password'
+  put 'users/profile_update' => 'home#update_password'
+
   # devise_for :admins
   # mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
   # The priority is based upon order of creation: first created -> highest priority.
